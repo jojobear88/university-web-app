@@ -1,11 +1,18 @@
 <html>
 <head>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+    <script src="https://unpkg.com/vue-select@latest"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
+
+
     <link rel="stylesheet" href="css/master.css">
     <title>University Index</title>
 </head>
 <body>
 
-<div class="background">
+<div class="background" id="vue-app">
 
     <h1>UNIVERSITY INDEX</h1>   
     
@@ -19,15 +26,37 @@
             <tr>
                 <td class="right-aligned">Select a country: </td>
                 <td>
-                    <select name="countrySelect">
-                    </select> 
+                    <!-- <select name="countrySelect">
+                        <option v-for="item in countries">
+                            {{ item }}
+                        </option>
+                    </select>  -->
+                    <v-select v-model="countrySelected" :options="countries" @input="fetchUniversities(); universitySelected = null;"></v-select>
                 </td>
             </tr>
 
             <tr>
                 <td class="right-aligned">Select a university: </td>
                 <td>
+                    <v-select v-model="universitySelected" :options="universities" :label="'name'"></v-select>
+                </td>
+            </tr>
 
+            <tr>
+                <td class="right-aligned" :class="{ 'multiple-entries' : ( universitySelected != null && universitySelected.domains.length > 1 ) }">Domains: </td>
+                <td v-if="universitySelected != null">
+                    <span v-for="domain in universitySelected.domains">
+                        {{ domain }} <br/>
+                    </span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="right-aligned" :class="{ 'multiple-entries' : ( universitySelected != null && universitySelected.web_pages.length > 1 ) }">Webpages: </td>
+                <td v-if="universitySelected != null">
+                    <span v-for="webpage in universitySelected.web_pages">
+                        <a v-bind:href="webpage" target="_blank">{{ webpage }}</a> <br/>
+                    </span>
                 </td>
             </tr>
 
