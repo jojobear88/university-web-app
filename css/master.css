@@ -29,7 +29,7 @@ h2 {
 }
 
 h3 {
-    color: darkblue;
+    color: darkgreen;
     text-align: center;
 }
 
@@ -44,19 +44,6 @@ hr {
 html {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.3rem;
-}
-
-table {
-    border-collapse: collapse;
-    font-size: 1rem;
-    margin: 0.8rem;
-    width: 95%;
-}
-
-td {
-    /* uncomment the following line to see the cell layout */
-    /* border: 2px solid red; */
-    padding: 0.5rem;
 }
 
 .background {
@@ -80,8 +67,66 @@ td {
     margin-top: 10rem;
 }
 
-.right-aligned {
+.link-preview-table {
+    background-color: rgb(169, 197, 120);
+    /* height: 10px; */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+    /* table-layout: fixed; */
+    width: 80%;
+}
+
+.link-preview-table td {
+    /* uncomment the following line to see the cell layout */
+    /* border: 2px solid red; */
+    height: 100px;
+    padding: 0.5rem;
+}
+
+.link-preview-description {
+    color: darkslategrey;
+    text-align: left;
+    vertical-align: top;
+}
+
+.link-preview-image {
+    height: 100px;
+    width: 200px;
     text-align: right;
+    vertical-align: top;
+}
+
+.link-preview-image img {
+    height: 100px;
+    object-fit: scale-down;
+    overflow: hidden;
+    width: 200px;
+}
+
+.link-preview-title {
+    color: darkgreen;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: top;
+}
+
+.link-preview-visit {
+    text-align: left;
+}
+
+.main-table {
+    border-collapse: collapse;
+    font-size: 1rem;
+    margin: 0.8rem;
+    width: 95%;
+}
+
+.main-table td {
+    /* uncomment the following line to see the cell layout */
+    /* border: 2px solid red; */
+    padding: 0.5rem;
 }
 
 .multiple-entries {
@@ -89,3 +134,6 @@ td {
     font-weight: bold;
 }
 
+.right-aligned {
+    text-align: right;
+}
