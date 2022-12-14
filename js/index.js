@@ -17,7 +17,8 @@ var app = new Vue ({
         countries: countryList,
         countrySelected: "",
         universities: [],
-        universitySelected: null
+        universitySelected: null,
+        weblinkCompleted: false
     },
 
     methods: {
@@ -28,9 +29,8 @@ var app = new Vue ({
             let matches = universityJson.filter(item => item.country == this.countrySelected);
             matches.sort((lhs,rhs) => lhs.name < rhs.name ? -1: 1);
 
-            console.log(matches);
-
             this.universities = matches;
+
         }
     }
 });

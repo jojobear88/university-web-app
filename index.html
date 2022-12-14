@@ -51,7 +51,7 @@
                 </td>
             </tr>
 
-            <tr>
+            <tr v-if="!weblinkCompleted">
                 <td class="right-aligned" :class="{ 'multiple-entries' : ( universitySelected != null && universitySelected.web_pages.length > 1 ) }">Webpages: </td>
                 <td v-if="universitySelected != null">
                     <span v-for="webpage in universitySelected.web_pages">
@@ -64,6 +64,10 @@
 
     </form>
 
+    <div>
+        <weblink-preview v-bind:targetuniversity="universitySelected" v-on:completion="weblinkCompleted = $event"></weblink-preview>
+    </div>
+
     <div class="headspaced">
         <hr />
         <p class="centered footnotes">Image by <a href="https://pixabay.com/users/alexas_fotos-686414/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2052868" target="_blank">Here and now, unfortunately, ends my journey on Pixabay</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2052868" target="_blank">Pixabay</a></p>
@@ -71,6 +75,7 @@
 
 </div>
 
+<script src="js/weblink-preview.js"></script>
 <script src="js/db.js"></script>
 <script src="js/index.js"></script>
 
